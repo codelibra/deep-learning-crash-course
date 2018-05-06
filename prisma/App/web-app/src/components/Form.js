@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import {Dropbox} from 'dropbox';
-import axios from 'axios';
+import uuid from 'uuid';
+
 import Dropzone from 'react-dropzone';
 import './dropzone-override.css';
 import LoadingSpinner from './LoadingSpinner';
@@ -44,7 +45,7 @@ onDrop(files) {
    var re = /\S+@\S+\.\S+/;
    if(this.state.files[0]===undefined || !re.test(this.refs.email.value)) {this.setState({alert:true,loading:false})}
     else{
-   dbx.filesUpload({path: '/prisma/input/'+this.refs.email.value+"/"+this.refs.filter.value+"_"+this.state.files[0].name, contents: this.state.files[0]})
+   dbx.filesUpload({path: '/prisma/input/'+this.refs.email.value+"/"+this.refs.filter.value+"_"+uuid.v4()+"_"+this.state.files[0].name, contents: this.state.files[0]})
    .then(response=> {
         this.setState({
          loading: false,
