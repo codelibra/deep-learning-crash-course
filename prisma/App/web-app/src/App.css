@@ -1,0 +1,25 @@
+.App-logo {
+  height: 80px;
+  margin-left: 20px;
+}
+
+.App-header {
+  height: 80px;
+  background-color: lightgray;
+}
+
+.App {
+  background-color:#222;
+  color: white;
+}
+
+.App-content {
+	margin-left: 20px;
+	margin-right: 20px;
+	
+}
+
+.SideBarItem:hover {
+	background-color: black;
+	cursor:pointer;
+}
