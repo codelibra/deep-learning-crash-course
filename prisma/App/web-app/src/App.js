@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import {Switch, Route} from 'react-router-dom';
-
+import {Navbar} from 'react-bootstrap';
 import './App.css';
 
 import 'bootstrap/dist/css/bootstrap.css';
@@ -21,14 +21,26 @@ class App extends Component {
     render() {
       return (
       <div className="App">
+
       <div className="App-header">
+      <Navbar collapseOnSelect fluid>
+      <Navbar.Toggle />
+      <Navbar.Collapse>
+       <img className="App-logo" src='movie.gif'/>
+       <img className="App-logo" src='movie1.gif'/>
+       <img className="App-logo" src='movie2.gif'/>
+       <img className="App-logo" src='movie3.gif'/>
+       <img className="App-logo" src='movie4.gif'/>
+      </Navbar.Collapse>
+      </Navbar>
       </div>
       <Navigator/>
       <div className="App-content">
         <Switch>
-           <Route exact path='/demo/' component={Form}/>
+           <Route exact path='/' component={Form}/>
            
         </Switch> 
+
       </div>  
       </div>
       );
