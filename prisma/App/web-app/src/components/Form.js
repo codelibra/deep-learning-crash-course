@@ -59,7 +59,7 @@ onDrop(files) {
    data.append('filterName', this.state.filterName.split(".")[0]);
    this.setState({ loading: true }, () => {
    var re = /\S+@\S+\.\S+/;
-   if(this.state.files[0]===undefined || !re.test(this.refs.email.value)) {this.setState({alert:true,loading:false})}
+   if(this.state.files[0]===undefined || !re.test(this.refs.email.value) || this.state.filterName===undefined || this.state.filterName==="" ) {this.setState({alert:true,loading:false})}
     else{
    dbx.filesUpload({path: '/prisma/input/'+this.refs.email.value+"/"+this.state.filterName.split(".")[0]+"_"+uuid.v4()+"_"+this.state.files[0].name, contents: this.state.files[0]})
    .then(response=> {
@@ -135,7 +135,7 @@ onSlideChanged(e) {
          <div className="col-sm-5">
          <h3>Step 2.</h3>
          <label>  <h4>Select Filter: {this.state.filterName.split(".")[0]}</h4></label>
-      <Carousel style={{height:"200px"}}>
+      <Carousel  interval={500000} style={{height:"200px"}}>
         {filterItems}
       </Carousel>
          </div>
